@@ -30,11 +30,10 @@
     </div>
     <!-- PHP CODE -->
     <?php
-    $host = "localhost";
-    $user = "root";
-    $database_name = "everlane";
-    $password = "";
-
+    $host = "sql100.infinityfree.com";
+    $user = "if0_37711788";
+    $database_name = "if0_37711788_everlane";
+    $password = "Sharif12345678";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['email'];
         mail($username, "EverLane Reset Password", "Your Code for resetting the password is:.$code");

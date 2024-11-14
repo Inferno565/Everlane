@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$user = "root";
-$database_name = "everlane";
-$password = "";
+$host = "sql100.infinityfree.com";
+$user = "if0_37711788";
+$database_name = "if0_37711788_everlane";
+$password = "Sharif12345678";
 $conn = mysqli_connect($host, $user, $password, $database_name);
 $prodid = intval($_GET["product_id"]);
 // echo $id;
