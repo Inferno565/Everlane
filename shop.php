@@ -110,19 +110,16 @@ mysqli_close($conn);
                     ?>
                     <?php
                     if ($_GET['session'] != 'active') {
-                        echo ' <button onclick=window.location.href="login.php">Buy Now</button>
-                    <button onclick=window.location.href="login.php">Add to Cart</button>
-';
+                        echo '<button onclick=window.location.href="login.php">Buy Now</button>
+                        <button onclick=window.location.href="login.php">Add to Cart</button>';
                     } else {
-
                         echo '
-                            <a href="buy.php?session=active">  <button name"buy">Buy Now</button></a>
-                           <form method="post">
-                           <label for="add">Quantity</label>
-                           <input type="number" name="quan">
-                           <button name="add">Add to Cart</button>
+                            <button onclick="window.location.href=\'buy_now.php?product_id=' . $prodid . '&quantity=1\'">Buy Now</button>
+                            <form method="post">
+                            <label for="add">Quantity</label>
+                            <input type="number" name="quan">
+                            <button name="add">Add to Cart</button>
                             </form>
-
                         ';
                         if (isset($_POST['add'])) {
                             include("connection.php");
@@ -223,7 +220,7 @@ mysqli_close($conn);
                         </div>
                         <div class="footer-col-2">
                             <img src="Images/LOGO.png" width="200px" height="50px" style="border-style: dashed;" alt="">
-                            <p>Where everything you need to know <br> is only an arm’s length away!</p>
+                            <p>Where everything you need to know <br> is only an arm's length away!</p>
                         </div>
                         <div class="footer-col-3">
                             <h3>Useful Links</h3>

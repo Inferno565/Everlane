@@ -10,10 +10,15 @@ if (!isset($_SESSION['id'])) {
 
 $user_id = $_SESSION['id'];
 
-// Get cart total
-$total_query = "SELECT SUM(total) as cart_total FROM cart WHERE user='$user_id'";
-$result = mysqli_query($conn, $total_query);
-$total = mysqli_fetch_assoc($result)['cart_total'];
+// Check if it's a direct purchase or cart purchase
+if (isset($_GET['buy_now']) && isset($_SESSION['buy_now'])) {
+    $total = $_SESSION['buy_now']['total'];
+} else {
+    // Get cart total
+    $total_query = "SELECT SUM(total) as cart_total FROM cart WHERE user='$user_id'";
+    $result = mysqli_query($conn, $total_query);
+    $total = mysqli_fetch_assoc($result)['cart_total'];
+}
 
 // Razorpay Integration
 $api_key = "rzp_test_mDis14cPBj50Oj";
