@@ -1,0 +1,13 @@
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Dependencies
+vendor/
+node_modules/
+
+# Logs
+*.log 

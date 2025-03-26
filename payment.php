@@ -2,6 +2,7 @@
 session_start();
 include("connection.php");
 require('razorpay-php\razorpay-php-master\Razorpay.php'); // Download Razorpay PHP SDK
+require_once 'config.php'; // Load environment variables
 
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
@@ -20,11 +21,8 @@ if (isset($_GET['buy_now']) && isset($_SESSION['buy_now'])) {
     $total = mysqli_fetch_assoc($result)['cart_total'];
 }
 
-// Razorpay Integration
-$api_key = "rzp_test_mDis14cPBj50Oj";
-$api_secret = "opSfpmrOPvD1sYlWMteKrUck";
-
-$api = new Razorpay\Api\Api($api_key, $api_secret);
+// Razorpay Integration using environment variables
+$api = new Razorpay\Api\Api(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET);
 
 // Create Razorpay Order
 try {
@@ -59,7 +57,7 @@ try {
 
     <script>
         var options = {
-            "key": "<?php echo $api_key; ?>",
+            "key": "<?php echo RAZORPAY_KEY_ID; ?>",
             "amount": "<?php echo $total * 100; ?>",
             "currency": "INR",
             "name": "EverLane",
