@@ -1,12 +1,14 @@
 <?php
-            $host = "localhost";
-            $user = "root";
-            $database_name = "everlane";
-            $password = "";
-            $conn = mysqli_connect($host, $user, $password, $database_name);
-            // if (!$conn) {
-            //     die("Connection failed: " . mysqli_connect_error());
-            // }
+// $host = "localhost";
+// $user = "root";
+// $database_name = "everlane";
+// $password = "";
+// $conn = mysqli_connect($host, $user, $password, $database_name);
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
+include("connection.php");  //connecting to the server							
+
 $conn = mysqli_connect($host, $user, $password, $database_name);
 $prodid = intval($_GET["product_id"]);
 // echo $id;
